@@ -19,7 +19,7 @@ pages:
     paths:
       - frontend/dist
     expire_in: 1 day
-  publish: frontend/build
+  publish: frontend/dist
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
       changes:

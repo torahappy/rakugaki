@@ -74,7 +74,7 @@ export const ADDRESSES: AllNetworkConfig = {
         name: "たくさん",
         description: "たくさん",
         otherSpecs: undefined,
-        layerRange: [-Infinity, Infinity],
+        layerRange: [1, Infinity],
         address: "0x8d9e8C1B3e3C70555923c01b0ab1cA77830047a0"
         },
         {

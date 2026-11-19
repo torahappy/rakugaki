@@ -49,7 +49,7 @@ function DataUpload() {
         }
       }
     } catch (e) {
-      setErrorMessage(String(e.msg));
+      setErrorMessage(JSON.stringify(e.msg));
     }
   }
 
@@ -91,7 +91,7 @@ function DataUpload() {
         setImageData(d);
       }
     } catch (e) {
-      setErrorMessage(String(e.msg));
+      setErrorMessage(JSON.stringify(e.msg));
     }
   }, [imageID])
 

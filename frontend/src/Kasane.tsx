@@ -146,7 +146,7 @@ function Kasane() {
         value={tokenID}
         onChange={(e) => setTokenID(e.target.value)}
       />
-      <Stack direction="row" justifyContent="center">
+      <Stack direction="row" sx={{justifyContent: "center"}}>
         <IconButton
           onClick={decreaseCount}
           color="primary"

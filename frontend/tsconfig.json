@@ -5,6 +5,7 @@
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "strict": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]

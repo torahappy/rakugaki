@@ -49,7 +49,7 @@ function DataUpload() {
         }
       }
     } catch (e) {
-      setErrorMessage(JSON.stringify(e.msg));
+      setErrorMessage(JSON.stringify(e));
     }
   }
 
@@ -91,7 +91,7 @@ function DataUpload() {
         setImageData(d);
       }
     } catch (e) {
-      setErrorMessage(JSON.stringify(e.msg));
+      setErrorMessage(JSON.stringify(e));
     }
   }, [imageID])
 
@@ -110,7 +110,7 @@ function DataUpload() {
         value={imageID}
         onChange={(e) => setImageID(e.target.value)}
       />
-      <Stack direction="row" justifyContent="center">
+      <Stack direction="row" sx={{justifyContent: "center"}}>
         <IconButton
           onClick={decreaseCount}
           color="primary"

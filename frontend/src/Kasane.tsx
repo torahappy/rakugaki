@@ -97,7 +97,7 @@ function Kasane() {
         downloadSVGData();
       }
     } catch (e) {
-      setErrorMessage(String(e));
+      setErrorMessage(String(e.msg));
     }
   }
 

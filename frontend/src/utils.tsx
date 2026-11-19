@@ -5,7 +5,8 @@ import * as paris26 from "./contracts/paris26";
 import * as paris18 from "./contracts/paris18";
 import * as cancun26 from "./contracts/cancun26";
 
-import { ADDRESSES, CompileKey, NetworkConfig } from "./Addresses";
+import { ADDRESSES } from "./Addresses";
+import type { CompileKey, NetworkConfig } from "./Addresses";
 
 export async function getProvider(): Promise<
   [[string], BrowserProvider] | null

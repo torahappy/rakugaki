@@ -22,7 +22,7 @@ import {
 } from "./utils";
 import ShowHide from "./ShowHide";
 import YamiMap from "./YamiMap";
-import { NetworkConfig } from "./Addresses";
+import type { NetworkConfig } from "./Addresses";
 
 function Kasane() {
   const [tokenID, setTokenID] = useState("0");

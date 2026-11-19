@@ -17,7 +17,7 @@ pages:
     - cd frontend/ && yarn && yarn build
   artifacts:
     paths:
-      - frontend/build
+      - frontend/dist
     expire_in: 1 day
   publish: frontend/build
   rules:

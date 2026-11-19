@@ -8,20 +8,46 @@ import * as cancun26 from "./contracts/cancun26";
 import { ADDRESSES } from "./Addresses";
 import type { CompileKey, NetworkConfig } from "./Addresses";
 
+let ACCOUNT_GLOBAL_CACHE: [[string], BrowserProvider] | null = null;
+let ACCOUNT_IS_FETCHING = false;
+
+export function sleep(ms: number): Promise<void> {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res()
+    }, ms)
+  });
+}
+
 export async function getProvider(): Promise<
   [[string], BrowserProvider] | null
 > {
+  if (ACCOUNT_GLOBAL_CACHE !== null) {
+    return ACCOUNT_GLOBAL_CACHE;
+  } else if (ACCOUNT_IS_FETCHING === true) {
+    while (true) {
+      await sleep(1000)
+      if (ACCOUNT_GLOBAL_CACHE !== null) {
+	return ACCOUNT_GLOBAL_CACHE;
+      }
+    }
+  }
+  ACCOUNT_IS_FETCHING = true;
   const provider = await detectEthereumProvider({ silent: true });
   if (provider && window.ethereum) {
     let accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
     if (accounts) {
-      return [accounts as [string], new BrowserProvider(window.ethereum)];
+      ACCOUNT_GLOBAL_CACHE=[accounts as [string], new BrowserProvider(window.ethereum)];
+      ACCOUNT_IS_FETCHING = false;
+      return ACCOUNT_GLOBAL_CACHE;
     } else {
+      ACCOUNT_IS_FETCHING = false;
       return null;
     }
   } else {
+    ACCOUNT_IS_FETCHING = false;
     return null;
   }
 }
